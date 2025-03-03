@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        #joke-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+        #joke {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        #jokeBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+        }
+        #baby-icon {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            transition: transform 1s linear;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="joke-container">
+        <img id="baby-icon" src="https://media.giphy.com/media/f9YggzR1RPwUM/giphy.gif" alt="Funny Baby">
+        <div id="joke">Loading...</div>
+        <button id="jokeBtn">Next Joke</button>
+    </div>
+
+    <script>
+        const jokeEl = document.getElementById('joke');
+        const jokeBtn = document.getElementById('jokeBtn');
+        const body = document.getElementById('body');
+        const babyIcon = document.getElementById('baby-icon');
+
+        const images = [
+            'https://source.unsplash.com/1600x900/?nature,funny',
+            'https://source.unsplash.com/1600x900/?comedy,laugh',
+            'https://source.unsplash.com/1600x900/?cartoon,fun',
+            'https://source.unsplash.com/1600x900/?animals,cute'
+        ];
+        
+        let imageIndex = 0;
+
+        jokeBtn.addEventListener('click', generateJoke);
+
+        function generateJoke() {
+            fetch('https://icanhazdadjoke.com', { headers: { Accept: 'application/json' } })
+                .then(response => response.json())
+                .then(data => {
+                    jokeEl.innerHTML = data.joke;
+                    jokeEl.style.color = getRandomColor();
+                    changeBackground();
+                    moveBabyIcon();
+                })
+                .catch(error => console.error('Error fetching joke:', error));
+        }
+
+        function changeBackground() {
+            body.style.backgroundImage = `url(${images[imageIndex]})`;
+            imageIndex = (imageIndex + 1) % images.length; // Cycle through images
+        }
+
+        function moveBabyIcon() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            babyIcon.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function getRandomColor() {
+            return `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`; // Random bright color
+        }
+
+        generateJoke(); // Load first joke immediately
+    </script>
+</body>
+</html>
