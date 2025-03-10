@@ -1,0 +1,14 @@
+
+{
+    "name": "usama",
+    "score": "34",
+    "isAdmin": "false",
+    "license": "null",
+    "shopitem": ["food","fruit","clothes","oil","sunflower"],
+    "myObj":{
+        "name ": "nested",
+        "marks": 34
+        
+    }
+
+}
