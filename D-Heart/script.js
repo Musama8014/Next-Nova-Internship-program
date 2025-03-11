@@ -25,6 +25,7 @@ loveMe.addEventListener('click', (e) => {
 });
 
 const createIcon = (e, iconClass) => {
+    
     const icon = document.createElement('i');
     icon.classList.add('fas', iconClass);
     
