@@ -3,7 +3,7 @@ const bg = document.querySelector('.bg');
 
 let load = 0;
 
-let int = setInterval(blurring, 30); // Faster updates for smooth effect
+let int = setInterval(blurring, 30);
 
 function blurring() {
   load++;
@@ -12,12 +12,12 @@ function blurring() {
     clearInterval(int);
   }
 
-  loadText.innerText = `${load}%`; // Update text to show counting
-  loadText.style.opacity = scale(load, 0, 100, 1, 0); // Fade out text
-  bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`; // Reduce blur
+  loadText.innerText = `${load}%`; 
+  loadText.style.opacity = scale(load, 0, 100, 1, 0);
+  bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`; 
 }
 
-// Function to scale values (Maps range of numbers)
+
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 };
