@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Custom Range Slider</title>
+  </head>
+  <body>
+    <h2>Custom Range Slider</h2>
+    <div class="range-container">
+      <input type="range" id="range" min="0" max="100">
+      <label for="range">50</label>
+    </div>
+    <div class="progress-container">
+      <svg width="100" height="100">
+          <circle cx="50" cy="50" r="40" stroke-width="10" class="progress-background" />
+          <circle cx="50" cy="50" r="40" stroke-width="10" class="progress-circle" />
+          <text x="50" y="55" text-anchor="middle" class="percentage-text">50%</text>
+      </svg>
+  </div>
+  
+
+    <script src="script.js"></script>
+  </body>
+</html>
