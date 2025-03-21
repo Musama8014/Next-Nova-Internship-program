@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #3b3b98;
+  background-color: #0ca038;
   color: #fff;
   font-family: 'Muli', sans-serif;
   display: flex;
@@ -24,7 +24,7 @@ h2 {
 }
 
 .container {
-  background-color: #23235b;
+  background-color: #196775;
   box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
   padding: 20px;
   width: 350px;
@@ -32,7 +32,7 @@ h2 {
 }
 
 .result-container {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(180, 63, 63, 0.4);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -66,8 +66,8 @@ h2 {
 
 .btn {
   border: none;
-  background-color: #3b3b98;
-  color: #fff;
+  background-color: #944f0e;
+  color: #ece4e4;
   font-size: 16px;
   padding: 8px 12px;
   cursor: pointer;
